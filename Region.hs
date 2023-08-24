@@ -1,10 +1,9 @@
+module Region ( Region, newR, foundR, linkR, tunelR, pathR, linksForR, connectedR, linkedR, delayR, availableCapacityForR, usedCapacityForR )
+   where
 
 import City 
 import Link 
 import Tunel 
-
-module Region ( Region, newR, foundR, linkR, tunelR, pathR, linksForR, connectedR, linkedR, delayR, availableCapacityForR, usedCapacityForR )
-   where
 
 data Region = Reg [City] [Link] [Tunel]
 newR :: Region
