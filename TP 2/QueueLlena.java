@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 public class QueueLlena extends QueueMadre{
 	private ArrayList<QueueMadre> lista = new ArrayList<>();
-	
 	private Object element;
+	
+	
 	public QueueLlena (Object element) {
 		this.element = element;
+	}
+	
+	public Object getElement() {
+		return element;
 	}
 	
 	public QueueMadre take() {
@@ -16,7 +21,7 @@ public class QueueLlena extends QueueMadre{
 
 	
 	public QueueMadre head() {
-		return lista.get(lista.size()-1);
+		return lista.get(0);
 	}
 
 }

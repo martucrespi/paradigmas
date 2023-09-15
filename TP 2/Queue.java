@@ -7,34 +7,34 @@ public class Queue {
 	private ArrayList<QueueMadre> lista = new ArrayList<>();
 	
 	public Queue() {
-		lista.add(0, (new QueueVacia()));
+		lista.add(new QueueVacia());
 	}
 	
   public boolean isEmpty() {
 		return lista.size() == 1;
   }
   
-	public Queue add( Object  cargo ) {
-		QueueLlena element = new QueueLlena(cargo);
-		QueueMadre elementoVacio = lista.get(lista.size()-1);
-		lista.remove(elementoVacio);
-		lista.add(element);	
-		lista.add(elementoVacio);
+	
+	public Queue add( String cargo) {
+		lista.add(0, new QueueLlena(cargo));
 		return this;
 	}
-	
 
-	public QueueMadre take(){
-		return lista.get(lista.size()-1).take();
+	public Object take(){
+		return lista.get(lista.size()-1).take().getElement();
 	}
 
 	
-	public QueueMadre head() {
-		return lista.get(lista.size()-1).head();
+	public Object head() {
+		return lista.get(0).getElement();
 	}
 
 	public int size() {
-		return lista.size()-1;
+		return lista.size();
 	}
 
 }
+
+
+
+
