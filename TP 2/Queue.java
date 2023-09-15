@@ -11,7 +11,7 @@ public class Queue {
 	}
 	
   public boolean isEmpty() {
-		return lista.isEmpty();
+		return lista.size() == 1;
   }
   
 	public Queue add( QueueMadre  cargo ) {
@@ -34,7 +34,3 @@ public class Queue {
 	}
 
 }
-
-
-
-
