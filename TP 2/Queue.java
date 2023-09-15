@@ -16,10 +16,11 @@ public class Queue {
   
 	public Queue add( Object  cargo ) {
 		QueueLlena element = new QueueLlena(cargo);
-		QueueMadre elementoVacio = lista.get(lista.size()-1);
-		lista.remove(elementoVacio);
-		lista.add(element);	
-		lista.add(elementoVacio);
+//		QueueMadre elementoVacio = lista.get(lista.size()-1);
+		lista.add(lista.size()-2, element);
+//		lista.remove(elementoVacio);
+//		lista.add(element);	
+//		lista.add(elementoVacio);
 		return this;
 	}
 	
@@ -34,7 +35,7 @@ public class Queue {
 	}
 
 	public int size() {
-		return lista.size();
+		return lista.size()-1;
 	}
 
 }
