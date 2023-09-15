@@ -5,9 +5,10 @@ import java.util.ArrayList;
 public class QueueLlena extends QueueMadre{
 	private ArrayList<QueueMadre> lista = new ArrayList<>();
 	
-	public QueueLlena () {
+	private Object element;
+	public QueueLlena (Object element) {
+		this.element = element;
 	}
-	
 	
 	public QueueMadre take() {
 		return lista.remove(lista.size()-1);
