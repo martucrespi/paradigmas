@@ -14,8 +14,12 @@ public class Queue {
 		return lista.size() == 1;
   }
   
-	public Queue add( QueueMadre  cargo ) {
-		lista.add(0, cargo);
+	public Queue add( Object  cargo ) {
+		QueueLlena element = new QueueLlena(cargo);
+		QueueMadre elementoVacio = lista.get(lista.size()-1);
+		lista.remove(elementoVacio);
+		lista.add(element);	
+		lista.add(elementoVacio);
 		return this;
 	}
 	
