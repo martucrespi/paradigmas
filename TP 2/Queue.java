@@ -1,60 +1,32 @@
 package queue;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 public class Queue {
-	private LinkedList lista = new LinkedList();
+	private ArrayList<QueueMadre> lista = new ArrayList<>();
 	
 	public Queue() {
+		lista.add(0, (new QueueVacia()));
 	}
 	
   public boolean isEmpty() {
 		return lista.isEmpty();
   }
   
-	public Queue add( Object  cargo ) {
-		lista.addLast(cargo);
+	public Queue add( QueueMadre  cargo ) {
+		lista.add(0, cargo);
 		return this;
 	}
 	
 
-	public Object take(){
-		if(lista.isEmpty()) {
-			throw new Error("Queue is empty");
-		}else {
-		return lista.pollFirst();
-		}
+	public QueueMadre take(){
+		return lista.get(lista.size()-1).take();
 	}
 
-/*	
-	public Object take() {
-	    return lista.isEmpty() ? throw new Error("Queue is empty") : lista.pollFirst();
-	}
-*/
 	
-	
-	
-/*
- import java.util.Optional;
-
-public Object take() {
-    return Optional.ofNullable(lista.pollFirst())
-                   .orElseThrow(() -> new Error("Queue is empty"));
-}
- */
-	
-	
-	
-	public Object head() {
-		
-		if(lista.isEmpty()) {
-			throw new Error("Queue is empty");
-		}else {
-		return lista.getFirst();
-		}
-		
-		
+	public QueueMadre head() {
+		return lista.get(lista.size()-1).head();
 	}
 
 	public int size() {
@@ -62,6 +34,7 @@ public Object take() {
 	}
 
 }
+
 
 
 
