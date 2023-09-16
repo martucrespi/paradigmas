@@ -15,4 +15,5 @@ public class QueueVacia extends QueueMadre {
 		throw new Error("Queue is empty");
 	}
 
+
 }

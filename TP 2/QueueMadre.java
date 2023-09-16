@@ -2,8 +2,8 @@ package queue;
 
 public abstract class QueueMadre {
 	private Object elemento;
-	public abstract QueueMadre take();
-	public abstract QueueMadre head();
+	public abstract Object take();
+	public abstract Object head();
 	
 	public Object getElement() {
 		return elemento;

@@ -21,16 +21,16 @@ public class Queue {
 	}
 
 	public Object take(){
-		return lista.get(lista.size()-1).take().getElement();
+		return lista.remove(lista.size()-2).getElement();
 	}
 
 	
 	public Object head() {
-		return lista.get(0).getElement();
+		return lista.get(lista.size()-2).getElement();
 	}
 
 	public int size() {
-		return lista.size();
+		return lista.size()-1;
 	}
 
 }
