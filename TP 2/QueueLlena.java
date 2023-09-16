@@ -11,10 +11,6 @@ public class QueueLlena extends QueueMadre{
 		this.element = element;
 	}
 	
-	public Object getElement() {
-		return element;
-	}
-	
 	public Object take() {
 		return element;
 	}
