@@ -7,7 +7,7 @@ public class Queue {
 	private ArrayList<QueueMadre> lista = new ArrayList<>();
 	
 	public Queue() {
-		lista.add(new QueueVacia());
+		lista.add(0, new QueueVacia());
 	}
 	
   public boolean isEmpty() {
@@ -16,17 +16,19 @@ public class Queue {
   
 	
 	public Queue add( String cargo) {
-		lista.add(0, new QueueLlena(cargo));
+		lista.add(1, new QueueLlena(cargo));
 		return this;
 	}
 
 	public Object take(){
-		return lista.remove(lista.size()-2).getElement();
+		QueueMadre removedElement = lista.remove(lista.size()-1);
+		return removedElement.take();
 	}
 
 	
 	public Object head() {
-		return lista.get(lista.size()-2).getElement();
+		QueueMadre headElement = lista.get(lista.size()-1);
+		return headElement.head();
 	}
 
 	public int size() {

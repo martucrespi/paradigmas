@@ -6,12 +6,12 @@ public class QueueVacia extends QueueMadre {
 	}
 
 
-	public QueueMadre take() {
+	public Object take() {
 		throw new Error("Queue is empty");
 	}
 
 
-	public QueueMadre head() {
+	public Object head() {
 		throw new Error("Queue is empty");
 	}
 

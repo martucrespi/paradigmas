@@ -15,13 +15,13 @@ public class QueueLlena extends QueueMadre{
 		return element;
 	}
 	
-	public QueueMadre take() {
-		return lista.remove(lista.size()-1);
+	public Object take() {
+		return element;
 	}
 
 	
-	public QueueMadre head() {
-		return lista.get(0);
+	public Object head() {
+		return element;
 	}
 
 }
