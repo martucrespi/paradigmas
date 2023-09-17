@@ -1,6 +1,6 @@
 package queue;
 
-public abstract class QueueMadre {
+public abstract class QueueElemento {
 	private Object elemento;
 	public abstract Object take();
 	public abstract Object head();
