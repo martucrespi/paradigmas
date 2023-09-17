@@ -6,14 +6,8 @@ public class ElementoNoValido extends QueueElemento {
 	}
 	
 
-	public Object take() {
+	public Object getElement() {
 		throw new Error("Queue is empty");
 	}
-
-
-	public Object head() {
-		throw new Error("Queue is empty");
-	}
-
 
 }
