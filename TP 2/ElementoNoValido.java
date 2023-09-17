@@ -1,10 +1,10 @@
 package queue;
 
-public class QueueVacia extends QueueMadre {
+public class ElementoNoValido extends QueueElemento {
 	
-	public QueueVacia() {
+	public ElementoNoValido() {
 	}
-
+	
 
 	public Object take() {
 		throw new Error("Queue is empty");
