@@ -22,13 +22,13 @@ public class Queue {
 
 	public Object take(){
 		QueueElemento removedElement = lista.remove(lista.size()-1);
-		return removedElement.take();
+		return removedElement.getElement();
 	}
 
 	
 	public Object head() {
 		QueueElemento headElement = lista.get(lista.size()-1);
-		return headElement.head();
+		return headElement.getElement();
 	}
 
 	public int size() {
