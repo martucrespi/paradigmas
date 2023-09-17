@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 
 public class Queue {
-	private ArrayList<QueueMadre> lista = new ArrayList<>();
+	private ArrayList<QueueElemento> lista = new ArrayList<>();
 	
 	public Queue() {
-		lista.add(0, new QueueVacia());
+		lista.add(0, new ElementoNoValido());
 	}
 	
   public boolean isEmpty() {
@@ -16,18 +16,18 @@ public class Queue {
   
 	
 	public Queue add( String cargo) {
-		lista.add(1, new QueueLlena(cargo));
+		lista.add(1, new ElementoValido(cargo));
 		return this;
 	}
 
 	public Object take(){
-		QueueMadre removedElement = lista.remove(lista.size()-1);
+		QueueElemento removedElement = lista.remove(lista.size()-1);
 		return removedElement.take();
 	}
 
 	
 	public Object head() {
-		QueueMadre headElement = lista.get(lista.size()-1);
+		QueueElemento headElement = lista.get(lista.size()-1);
 		return headElement.head();
 	}
 
@@ -36,7 +36,3 @@ public class Queue {
 	}
 
 }
-
-
-
-
