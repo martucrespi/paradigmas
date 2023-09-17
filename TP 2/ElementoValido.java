@@ -15,9 +15,4 @@ public class ElementoValido extends QueueElemento{
 		return element;
 	}
 
-	
-	public Object head() {
-		return element;
-	}
-
 }
