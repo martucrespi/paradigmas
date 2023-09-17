@@ -11,7 +11,7 @@ public class ElementoValido extends QueueElemento{
 		this.element = element;
 	}
 	
-	public Object take() {
+	public Object getElement() {
 		return element;
 	}
 
