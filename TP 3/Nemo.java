@@ -65,6 +65,20 @@ public class Nemo {
 		}else if (instruccion == 'l' && this.direc == "E") {
 			this.direc = "N";
 		}
+
+		
+		if (instruccion == 'f' && this.direc == "N") {
+			this.y += 1;
+		}
+		else if (instruccion == 'f' && this.direc == "S") {
+			this.y -= 1;
+		}
+		else if (instruccion == 'f' && this.direc == "E") {
+			this.x += 1;
+		}
+		else if (instruccion == 'f' && this.direc == "O") {
+			this.x -= 1;
+		}
 	}
 		
 
