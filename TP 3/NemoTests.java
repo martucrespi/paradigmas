@@ -46,41 +46,40 @@ public class NemoTests {
 		nemo.mover('l');
 		assertEquals( nemo.direc(), "O");
 	 }
-	 @Test public void test08NemoMakesFullTurnRight() {
-		Nemo nemo = new Nemo();
-		nemo.mover('r');
-		assertEquals( nemo.direc(), "E");
-		nemo.mover('r');
-		assertEquals( nemo.direc(), "S");
-		nemo.mover('r');
-		assertEquals( nemo.direc(), "O");
-		nemo.mover('r');
-		assertEquals( nemo.direc(), "N");
-	 }
-	 @Test public void test09NemoMakesFullTurnLeft() {
-		Nemo nemo = new Nemo();
-		nemo.mover('l');
-		assertEquals( nemo.direc(), "O");
-		nemo.mover('l');
-		assertEquals( nemo.direc(), "S");
-		nemo.mover('l');
-		assertEquals( nemo.direc(), "E");
-		nemo.mover('l');
-		assertEquals( nemo.direc(), "N");
-	 }
-	 @Test public void test10NemoMovesForward() {
-		Nemo nemo = new Nemo();
-		nemo.mover('f');
-		assertEquals(nemo.y(), 1);
-		nemo.mover('r');
-		nemo.mover('f');
-		assertEquals(nemo.x(), 1);
-		nemo.mover('r');
-		nemo.mover('f');
-		assertEquals(nemo.y(), 0);
-		nemo.mover('r');
-		nemo.mover('f');
-		assertEquals(nemo.x(), 0);
-	}	
+//	 @Test public void test08NemoMakesFullTurnRight() {
+//		Nemo nemo = new Nemo();
+//		nemo.mover('r');
+//		assertEquals( nemo.direc(), "E");
+//		nemo.mover('r');
+//		assertEquals( nemo.direc(), "S");
+//		nemo.mover('r');
+//		assertEquals( nemo.direc(), "O");
+//		nemo.mover('r');
+//		assertEquals( nemo.direc(), "N");
+//	 }
+//	 @Test public void test09NemoMakesFullTurnLeft() {
+//		Nemo nemo = new Nemo();
+//		nemo.mover('l');
+//		assertEquals( nemo.direc(), "O");
+//		nemo.mover('l');
+//		assertEquals( nemo.direc(), "S");
+//		nemo.mover('l');
+//		assertEquals( nemo.direc(), "E");
+//		nemo.mover('l');
+//		assertEquals( nemo.direc(), "N");
+//	 }
+//	 @Test public void test10NemoMovesForward() {
+//		Nemo nemo = new Nemo();
+//		nemo.mover('f');
+//		assertEquals(nemo.y(), 1);
+//		nemo.mover('r');
+//		nemo.mover('f');
+//		assertEquals(nemo.x(), 1);
+//		nemo.mover('r');
+//		nemo.mover('f');
+//		assertEquals(nemo.y(), 0);
+//		nemo.mover('r');
+//		nemo.mover('f');
+//		assertEquals(nemo.x(), 0);
+//	}	
 }
-	

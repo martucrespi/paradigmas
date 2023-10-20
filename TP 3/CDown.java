@@ -14,4 +14,7 @@ public class CDown extends Commands {
 	public char getKey() {
 		return this.key;
 	}
+
+	@Override
+	public void movimiento(Nemo nemo, String direction) {}
 }

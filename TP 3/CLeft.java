@@ -10,7 +10,7 @@ public class CLeft extends Commands {
 		this.key = 'l';
 	}
 	
-	public void ejDireccion(Nemo nemo, char instruccion) {
+	public void movimiento(Nemo nemo, String direction) {
 		
 		direcciones.add(new North());
 		direcciones.add(new South());
@@ -23,13 +23,12 @@ public class CLeft extends Commands {
 			}
 		}
 	}
-	
-	public void ejecutar(Nemo nemo, char instruction) {
-		this.ejDireccion(nemo, instruction);
-	}
 
 	public char getKey() {
 		return this.key;
 	}
+
+	@Override
+	public void ejecutar(Nemo nemo, char instruccion) {}
 
 }
