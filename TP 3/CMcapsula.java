@@ -12,7 +12,6 @@ public class CMcapsula extends Commands {
 	}
 
 
-	@Override
 	public char getKey() {
 		return this.key;
 	}

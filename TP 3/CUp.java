@@ -10,14 +10,14 @@ public class CUp extends Commands{
 
 	
 	public void ejecutar(Nemo nemo, char instruccion) {
-		// if profundidad == 1 --> no sube mas
-		nemo.profundidad += 1;
-		
+		if (nemo.profundidad == 1) {
+			nemo.profundidad = 1;
+		}
+		else {
+			nemo.profundidad += 1;
+		}
 	}
 
-
-
-	@Override
 	public char getKey() {
 		return this.key;
 	}

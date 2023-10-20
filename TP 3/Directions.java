@@ -1,11 +1,13 @@
 package Nemo;
 
-public  abstract class Directions {
+public abstract class Directions {
 
 	String right;
 	String left;
-	public abstract String getRight();
-	public abstract String getLeft();
+	String key;
+	public abstract void getRight(Nemo nemo);
+	public abstract void getLeft(Nemo nemo);
 	public abstract void moveForwards(Nemo nemo);
+	public abstract String getKey();
 }
 
