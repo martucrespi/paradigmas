@@ -4,34 +4,38 @@ import java.util.ArrayList;
 
 public class Nemo {
 
-	// larga capsula en profundidad = 0 o =1
 	public int x;
 	public int y;
-	public int profundidad;
+	public int depth;
 	public String direc;
-	public ArrayList<Commands> comandos = new ArrayList<Commands>();
+	public ArrayList<Commands> commands = new ArrayList<Commands>();
 	
-	public Commands commandsFor(char instruccion) {
-		comandos.add(new CDown());
-		comandos.add(new CUp());
-		comandos.add(new CLeft());
-		comandos.add(new CRight());
-		comandos.add(new CForward());
-		comandos.add(new CMcapsula());
+	public Commands commandsFor(char instruction) {
+		commands.add(new CDown());
+		commands.add(new CUp());
+		commands.add(new CLeft());
+		commands.add(new CRight());
+		commands.add(new CForward());
+		commands.add(new CMCapsule());
 	
-		for (int i = 0; i <= comandos.size(); i ++){
-			if (instruccion == comandos.get(i).getKey()){
-				return comandos.get(i);
-				}
-			}
-		return null;
+		return commands.stream()
+		        .filter(command -> instruction == command.getKey())
+		        .findFirst()
+		        .orElse(null);
 	}
 
 	public Nemo () {
 		this.x = 0;
 		this.y = 0;
-		this.profundidad = 0;
+		this.depth = 0;
 		this.direc = "N";
+	}
+	
+	public Nemo (int x, int y, int prof, String direc) {
+		this.x = x;
+		this.y = y;
+		this.depth = prof;
+		this.direc = direc;
 	}
 
 	public int x() {
@@ -42,19 +46,20 @@ public class Nemo {
 		return this.y;
 	}
 	
-	public int profundidad() {
-		return this.profundidad;
+	public int depth() {
+		return this.depth;
 	}
 	
 	public String direc() {
 		return this.direc;
 	}
 	
-	public void moverVacio(String instruccion) {
+	public void move(char instruction) {
+		this.commandsFor(instruction).execute(this);
 	}
 	
-	public void mover(char instruction) {
-		this.commandsFor(instruction).ejecutar(this, instruction);
-	}	
+	public void move(String instruction) {
+		instruction.chars().forEach(c -> move((char) c));
+	}
 
 }

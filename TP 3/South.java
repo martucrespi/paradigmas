@@ -2,9 +2,6 @@ package Nemo;
 
 public class South extends Directions{
 	
-//	String right = "W";
-//	String left = "E";
-	
 	public South() {
 		this.key = "S";
 	}

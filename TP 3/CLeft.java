@@ -4,31 +4,27 @@ import java.util.ArrayList;
 
 public class CLeft extends Commands {
 	
-	public ArrayList<Directions> direcciones = new ArrayList<Directions>();
+	public ArrayList<Directions> directions = new ArrayList<Directions>();
 	
 	public CLeft() {
 		this.key = 'l';
 	}
 	
-	public void movimiento(Nemo nemo, String direction) {
+	public void execute(Nemo nemo) {
 		
-		direcciones.add(new North());
-		direcciones.add(new South());
-		direcciones.add(new East());
-		direcciones.add(new West());
+		directions.add(new North());
+		directions.add(new South());
+		directions.add(new East());
+		directions.add(new West());
 				
-		for (int i = 0; i <= direcciones.size(); i ++) {
-			if (nemo.direc == direcciones.get(i).getKey()) {
-				direcciones.get(i).getLeft(nemo);
-			}
-		}
+		directions.stream()
+        	.filter(direction -> nemo.direc == direction.getKey())
+        	.findFirst()
+        	.ifPresent(direction -> direction.getLeft(nemo));
 	}
 
 	public char getKey() {
 		return this.key;
 	}
-
-	@Override
-	public void ejecutar(Nemo nemo, char instruccion) {}
 
 }

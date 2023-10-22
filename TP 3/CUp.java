@@ -9,12 +9,12 @@ public class CUp extends Commands{
 	}
 
 	
-	public void ejecutar(Nemo nemo, char instruccion) {
-		if (nemo.profundidad == 1) {
-			nemo.profundidad = 1;
+	public void execute(Nemo nemo) {
+		if (nemo.depth == 0) {
+			nemo.depth = 0;
 		}
 		else {
-			nemo.profundidad += 1;
+			nemo.depth += 1;
 		}
 	}
 
@@ -22,8 +22,4 @@ public class CUp extends Commands{
 		return this.key;
 	}
 
-
-	@Override
-	public void movimiento(Nemo nemo, String direction) {}
-	
 }
