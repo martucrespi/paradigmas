@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Linea {
 	
-	public ArrayList<Columns> board = new ArrayList<>();
+	public ArrayList<Columns> board;
 	
 	public int width;
 	public int height;
@@ -15,10 +15,11 @@ public class Linea {
 		this.width = width;
 		this.height = height;
 		this.gameType = gameType;
+		setTurn("R");
 		
-		this.board = new ArrayList<ArrayList<Object>>();
+		this.board = new ArrayList<Columns>();
         for (int i = 0; i < width; i++) {
-            ArrayList<Object> column = new ArrayList<Object>();
+            Columns column = new Columns();
             this.board.add(column);
         }
 	}
@@ -51,21 +52,32 @@ public class Linea {
 		return turn;
 	}
 	
-	public void PlayRedAt(int column) {
+	public void playRedAt(int column) {
 		if (turn == "R") {
-			setTurn("B");
-			int columnIndex = column - 1;
-			board[0].
+			if (column > board.size()) {
+				throw new Error ("Cannot play out of bounds");
+			}
+			else {
+				setTurn("B");
+				int columnIndex = column - 1;
+				board.get(columnIndex).add("R", this);
+			}
 		}
 		else {
 			throw new Error ("Red cannot play twice");
 		}
 	}
 	
-	public void manoJuega(int column) {
+	public void playBlueAt(int column) {
 		if (turn == "B") {
-			setTurn("R");
-			board.add(column-1, "O");
+			if (column > board.size()) {
+				throw new Error ("Cannot play out of bounds");
+			}
+			else {
+				setTurn("R");
+				int columnIndex = column - 1;
+				board.get(columnIndex).add("B", this);
+			}
 		}
 		else {
 			throw new Error ("Blue cannot play twice");
