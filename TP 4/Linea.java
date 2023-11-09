@@ -8,13 +8,14 @@ public class Linea {
 	
 	public int width;
 	public int height;
-	public char gameType;
+	public char gametype;
 	private String turn;
+	public ArrayList<GameType> gameTypes = new ArrayList<GameType>();
 	
 	public Linea(int width, int height, char gameType) {
 		this.width = width;
 		this.height = height;
-		this.gameType = gameType;
+		this.gametype = gameType;
 		setTurn("R");
 		
 		this.board = new ArrayList<Columns>();
@@ -22,6 +23,21 @@ public class Linea {
             Columns column = new Columns();
             this.board.add(column);
         }
+	}
+	
+	public GameType gameTypeFor(char gtype) {
+		gameTypes.add(new GameTypeA());
+		gameTypes.add(new GameTypeB());
+		gameTypes.add(new GameTypeC());
+   	
+   		return gameTypes.stream()
+   		        .filter(type -> gtype == type.getKey())
+   		        .findFirst()
+   		        .orElse(null);
+   	}
+	
+	public boolean finished() {
+		return this.gameTypeFor(this.gametype()).finished(this);
 	}
 	
 	public void setTurn(String turn) {
@@ -36,8 +52,8 @@ public class Linea {
 		return this.height;
 	}
 	
-	public char gameType() {
-		return this.gameType;
+	public char gametype() {
+		return this.gametype;
 	}
 	
 	public boolean redPlays() {
@@ -83,5 +99,4 @@ public class Linea {
 			throw new Error ("Blue cannot play twice");
 		}
 	}
-
 }

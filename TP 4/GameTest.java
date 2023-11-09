@@ -21,21 +21,21 @@ public class GameTest {
 		Linea game = new Linea(6, 6, 'A');
 		assertEquals(game.width, 6);
 		assertEquals(game.height, 6);
-		assertEquals(game.gameType, 'A');
+		assertEquals(game.gametype, 'A');
 	}
 	
 	@Test public void test01StartsNewGameB() {
 		Linea game = new Linea(6, 6, 'B');
 		assertEquals(game.width, 6);
 		assertEquals(game.height, 6);
-		assertEquals(game.gameType, 'B');
+		assertEquals(game.gametype, 'B');
 	}
 	
 	@Test public void test02StartsNewGameC() {
 		Linea game = new Linea(6, 6, 'C');
 		assertEquals(game.width, 6);
 		assertEquals(game.height, 6);
-		assertEquals(game.gameType, 'C');
+		assertEquals(game.gametype, 'C');
 	}
 	
 	@Test public void test05RedPlays() {
@@ -126,70 +126,87 @@ public class GameTest {
 		}
 	}
 	
-	@Test public void test10RedWinsAHorizontally() {
-	
-	}
+//	@Test public void test10RedWinsAHorizontally() {
+//	
+//	}
 	
 	@Test public void test10RedWinsAVertically() {
-	
+		Linea game = new Linea(4, 4, 'A');
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		game.playRedAt(1);
+		assertTrue(game.finished());
 	}
 	
-	@Test public void test11BlueWinsAHorizontally() {
-		
-	}
+//	@Test public void test11BlueWinsAHorizontally() {
+//		
+//	}
 	
 	@Test public void test11BlueWinsAVertically() {
-		
+		Linea game = new Linea(5, 5, 'A');
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		game.playRedAt(3);
+		game.playBlueAt(2);
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		game.playRedAt(1);
+		game.playBlueAt(2);
+		assertTrue(game.finished());
 	}
 	
-	@Test public void test12RedWinsBToTheRight() {
-		
-	}
-	
-	@Test public void test12RedWinsBToTheLeft() {
-		
-	}
-	
-	@Test public void test13BlueWinsBToTheRight() {
-		
-	}
-	
-	@Test public void test13BlueWinsBToTheLeft() {
-		
-	}
-	
-	@Test public void test14RedWinsCHorizontally() {
-		
-	}
-	
-	@Test public void test14RedWinsCVertically() {
-		
-	}
-	
-	@Test public void test14RedWinsCToTheRight() {
-		
-	}
-	
-	@Test public void test14RedWinsCToTheLeft() {
-		
-	}
-	
-	@Test public void test15BlueWinsCHorizontally() {
-		
-	}
-	
-	@Test public void test15BlueWinsCVertically() {
-		
-	}
-	
-	@Test public void test15BlueWinsCToTheRight() {
-		
-	}
-	
-	@Test public void test15BlueWinsCToTheLeft() {
-		
-	}
-	
+//	@Test public void test12RedWinsBToTheRight() {
+//		
+//	}
+//	
+//	@Test public void test12RedWinsBToTheLeft() {
+//		
+//	}
+//	
+//	@Test public void test13BlueWinsBToTheRight() {
+//		
+//	}
+//	
+//	@Test public void test13BlueWinsBToTheLeft() {
+//		
+//	}
+//	
+//	@Test public void test14RedWinsCHorizontally() {
+//		
+//	}
+//	
+//	@Test public void test14RedWinsCVertically() {
+//		
+//	}
+//	
+//	@Test public void test14RedWinsCToTheRight() {
+//		
+//	}
+//	
+//	@Test public void test14RedWinsCToTheLeft() {
+//		
+//	}
+//	
+//	@Test public void test15BlueWinsCHorizontally() {
+//		
+//	}
+//	
+//	@Test public void test15BlueWinsCVertically() {
+//		
+//	}
+//	
+//	@Test public void test15BlueWinsCToTheRight() {
+//		
+//	}
+//	
+//	@Test public void test15BlueWinsCToTheLeft() {
+//		
+//	}
+//	
 //	@Test public void test10CannotPlayWhenWonA() {
 //		
 //	}
