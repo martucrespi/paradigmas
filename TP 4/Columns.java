@@ -19,7 +19,7 @@ public class Columns {
 		return column.size();
 	} 
 	
-	public boolean elementsAreAllequal() {
+	public boolean verticalElementsAreEqual() {
 	    int counter = 0;
 	    for (int i = 0; i < column.size() - 1; i++) {
 	        if (column.get(i) == column.get(i + 1)) {
@@ -33,6 +33,24 @@ public class Columns {
 	    }
 	    return false;
 	}
+	
+	public boolean compareElementsBetweenColumns(Columns aColumn, int element) {
+		return this.get(element) == aColumn.get(element);
+	}
+	
+	public boolean compareElementDiagonallyUp(Columns aColumn, int element) {
+		return this.get(element) == aColumn.get(element + 1);
+	}
+	
+	public boolean compareElementDiagonallyDown(Columns aColumn, int element) {
+		return this.get(element) == aColumn.get(element - 1);
+	}
+
+	private String get(int element) {
+		return column.get(element);
+	}
+
+
 
 
 }
