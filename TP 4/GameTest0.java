@@ -142,6 +142,8 @@ public class GameTest0 {
 		assertTrue(game.finished());
 	}
 	
+	
+	
 	@Test public void test15BlueWinsAHorizontally() {
 		Linea0 game = new Linea0(5, 5, 'A');
 		game.playRedAt(1);
@@ -198,7 +200,7 @@ public class GameTest0 {
 //	@Test public void test20BlueWinsBToTheLeft() {
 //		
 //	}
-	
+
 	@Test public void test21RedWinsCHorizontally() {
 		Linea0 game = new Linea0(5, 5, 'C');
 		game.playRedAt(5);

@@ -22,8 +22,11 @@ public class GameTypeC0 extends GameType0{
 	
 	
 		int counter = 0;
-		for (int e = 0; e < linea.columns()-1 ; e++) {
+		for (int e = 1; e < linea.columns()-1 ; e++) {
 			for (int k = 0; k < linea.rows()-1 ; k++) {
+				if (linea.board.get(k).size() <= e) {
+		             continue;
+		         }
 				if (linea.board.get(k).get(e).equals((linea.board.get(k+1).get(e)))){
 					counter += 1;
 					 if (counter == 3) {
@@ -39,7 +42,7 @@ public class GameTypeC0 extends GameType0{
 	}
 
 
-	public boolean verticalElementsAreEqual(ArrayList<String> column) {
+	public boolean verticalElementsAreEqual(ArrayList<Character> column) {
 		int counter = 0;
 	    for (int j = 0; j < column.size() - 1; j++) {
 	        if (column.get(j).equals(column.get(j + 1))) {

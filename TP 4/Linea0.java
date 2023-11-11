@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Linea0 {
 	
-	public ArrayList<ArrayList<String>> board;
+	public ArrayList<ArrayList<Character>> board;
 	
 	public int rows;
 	public int columns;
@@ -19,9 +19,11 @@ public class Linea0 {
 		this.gametype = gameType;
 		setTurn("R");
 		
-		this.board = new ArrayList<ArrayList<String>>();
+		this.board = new ArrayList<>();
 		for (int i = 0; i < columns; i++) {
-			this.board.add(new ArrayList<String>());
+			ArrayList<Character> column = new ArrayList<>();
+			column.add('N');
+			this.board.add(column);
 		}
 	}
 	
@@ -76,7 +78,7 @@ public class Linea0 {
 			}else {
 				setTurn("B");
 				int columnIndex = column -1;
-				board.get(columnIndex).add("X");
+				board.get(columnIndex).add('X');
 			}
 		}else {
 			throw new Error ("Red cannot play twice");
@@ -90,7 +92,7 @@ public class Linea0 {
 			}else {
 				setTurn("R");
 				int columnIndex = column -1;
-				board.get(columnIndex).add("O");
+				board.get(columnIndex).add('O');
 			}
 		}else {
 			throw new Error ("Blue cannot play twice");
