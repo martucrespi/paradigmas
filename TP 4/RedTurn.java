@@ -1,24 +1,24 @@
 package linea;
 
-public class RedTurn extends Players{
+public class RedTurn extends Status{
 	
 	public RedTurn() {
-		this.icon = "R";
+		this.icon = 'X';
 	}
 	
-	public String getIcon() {
+	public char getIcon() {
 		return this.icon;
 	}
 	
 	public void play(Linea linea, int column) {
-		if (linea.turn == "R") {
-			if (column > linea.board.size()) {
+		if (linea.turn == 'X') {
+			if (column > linea.columns()) {
 				throw new Error ("Cannot play out of bounds");
 			}
 			else {
-				linea.setStatus("B");
+				linea.setTurn('O');
 				int columnIndex = column - 1;
-				linea.board.get(columnIndex).add("R", linea);
+				linea.board.get(columnIndex).add('X');
 			}
 		}
 		else {

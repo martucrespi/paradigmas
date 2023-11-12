@@ -1,29 +1,28 @@
 package linea;
 
-public class BlueTurn extends Players{
+public class BlueTurn extends Status{
 	
 	public BlueTurn() {
-		this.icon = "B";
+		this.icon = 'O';
 	}
 	
-	public String getIcon() {
+	public char getIcon() {
 		return this.icon;
 	}
 
 	public void play(Linea linea, int column) {
-		if (linea.turn == "B") {
-			if (column > linea.board.size()) {
+		if (linea.turn == 'O') {
+			if (column > linea.columns()) {
 				throw new Error ("Cannot play out of bounds");
 			}
 			else {
-				linea.setStatus("R");
+				linea.setTurn('X');
 				int columnIndex = column - 1;
-				linea.board.get(columnIndex).add("B", linea);
+				linea.board.get(columnIndex).add('O');
 			}
 		}
 		else {
 			throw new Error ("Blue cannot play twice");
 		}
 	}
-
 }
