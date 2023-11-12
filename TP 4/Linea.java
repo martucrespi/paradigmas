@@ -9,14 +9,15 @@ public class Linea {
 	public int width;
 	public int height;
 	public char gametype;
-	private String turn;
+	public String turn;
 	public ArrayList<GameType> gameTypes = new ArrayList<GameType>();
+	public ArrayList<Players> player = new ArrayList<Players>();
 	
 	public Linea(int width, int height, char gameType) {
 		this.width = width;
 		this.height = height;
 		this.gametype = gameType;
-		setTurn("R");
+		setStatus("R");
 		
 		this.board = new ArrayList<Columns>();
         for (int i = 0; i < width; i++) {
@@ -40,7 +41,7 @@ public class Linea {
 		return this.gameTypeFor(this.gametype()).finished(this);
 	}
 	
-	public void setTurn(String turn) {
+	public void setStatus(String turn) {
 		this.turn = turn;
 	}
 	
@@ -68,35 +69,23 @@ public class Linea {
 		return turn;
 	}
 	
+	public Players playTurn(String icon) {
+		player.add(new RedTurn());
+		player.add(new BlueTurn());
+		player.add(new GameFinished());
+		
+		return player.stream()
+				.filter(player -> icon == player.getIcon())
+   		      	.findFirst()
+   		        .orElse(null);
+	}
+	
+	
 	public void playRedAt(int column) {
-		if (turn == "R") {
-			if (column > board.size()) {
-				throw new Error ("Cannot play out of bounds");
-			}
-			else {
-				setTurn("B");
-				int columnIndex = column - 1;
-				board.get(columnIndex).add("R", this);
-			}
-		}
-		else {
-			throw new Error ("Red cannot play twice");
-		}
+		this.playTurn("R").play(this, column); //cambiar R a X, B a O y string a char 
 	}
 	
 	public void playBlueAt(int column) {
-		if (turn == "B") {
-			if (column > board.size()) {
-				throw new Error ("Cannot play out of bounds");
-			}
-			else {
-				setTurn("R");
-				int columnIndex = column - 1;
-				board.get(columnIndex).add("B", this);
-			}
-		}
-		else {
-			throw new Error ("Blue cannot play twice");
-		}
+		this.playTurn("B").play(this, column);
 	}
 }
