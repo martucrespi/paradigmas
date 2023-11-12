@@ -4,26 +4,28 @@ import java.util.ArrayList;
 
 public class Linea {
 	
-	public ArrayList<Columns> board;
+	public ArrayList<ArrayList<Character>> board;
 	
-	public int width;
-	public int height;
+	public int rows;
+	public int columns;
 	public char gametype;
-	public String turn;
+	public char turn;
 	public ArrayList<GameType> gameTypes = new ArrayList<GameType>();
-	public ArrayList<Players> player = new ArrayList<Players>();
+	public ArrayList<Status> status = new ArrayList<Status>();
 	
-	public Linea(int width, int height, char gameType) {
-		this.width = width;
-		this.height = height;
+	
+	public Linea (int rows, int columns, char gameType) {
+		this.rows = rows;
+		this.columns = columns;
 		this.gametype = gameType;
-		setStatus("R");
+		setTurn('X');
 		
-		this.board = new ArrayList<Columns>();
-        for (int i = 0; i < width; i++) {
-            Columns column = new Columns();
-            this.board.add(column);
-        }
+		this.board = new ArrayList<>();
+		for (int i = 0; i < columns; i++) {
+			ArrayList<Character> column = new ArrayList<>();
+			column.add('N');
+			this.board.add(column);
+		}
 	}
 	
 	public GameType gameTypeFor(char gtype) {
@@ -38,54 +40,55 @@ public class Linea {
    	}
 	
 	public boolean finished() {
-		return this.gameTypeFor(this.gametype()).finished(this);
+		return this.gameTypeFor(this.gameType()).winningMethod(this, this.turn());
 	}
 	
-	public void setStatus(String turn) {
+	public void setTurn(char turn) {
 		this.turn = turn;
 	}
 	
-	public int width() {
-		return this.width;
+	public int columns() {
+		return this.columns;
 	}
 	
-	public int height() {
-		return this.height;
+	public int rows () {
+		return this.rows;
 	}
 	
-	public char gametype() {
+	public char gameType() {
 		return this.gametype;
 	}
 	
 	public boolean redPlays() {
-		return turn() == "R";
+		return turn() == 'X';
 	}
 
 	public boolean bluePlays() {
-		return turn() == "B";
+		return turn() == 'O';
 	}
 	
-	private String turn(){
+	private char turn(){
 		return turn;
 	}
 	
-	public Players playTurn(String icon) {
-		player.add(new RedTurn());
-		player.add(new BlueTurn());
-		player.add(new GameFinished());
+	public Status playTurn(char icon) {
+		status.add(new RedTurn());
+		status.add(new BlueTurn());
+		status.add(new GameFinished());
 		
-		return player.stream()
-				.filter(player -> icon == player.getIcon())
+		return status.stream()
+				.filter(status -> icon == status.getIcon())
    		      	.findFirst()
    		        .orElse(null);
 	}
 	
 	
 	public void playRedAt(int column) {
-		this.playTurn("R").play(this, column); //cambiar R a X, B a O y string a char 
+		this.playTurn('X').play(this, column);
 	}
 	
 	public void playBlueAt(int column) {
-		this.playTurn("B").play(this, column);
+		this.playTurn('O').play(this, column);
 	}
+	
 }

@@ -11,22 +11,22 @@ public class GameTest {
 	
 	@Test public void test01StartNewGameA() {
 		Linea game = new Linea(6, 6, 'A');
-		assertEquals(game.width, 6);
-		assertEquals(game.height, 6);
+		assertEquals(game.columns, 6);
+		assertEquals(game.rows, 6);
 		assertEquals(game.gametype, 'A');
 	}
 	
 	@Test public void test02StartsNewGameB() {
 		Linea game = new Linea(6, 6, 'B');
-		assertEquals(game.width, 6);
-		assertEquals(game.height, 6);
+		assertEquals(game.columns, 6);
+		assertEquals(game.rows, 6);
 		assertEquals(game.gametype, 'B');
 	}
 	
 	@Test public void test03StartsNewGameC() {
 		Linea game = new Linea(6, 6, 'C');
-		assertEquals(game.width, 6);
-		assertEquals(game.height, 6);
+		assertEquals(game.columns, 6);
+		assertEquals(game.rows, 6);
 		assertEquals(game.gametype, 'C');
 	}
 	
@@ -172,7 +172,7 @@ public class GameTest {
 	}
 	
 	@Test public void test17RedWinsBDiagonallyUp() {
-		Linea game = new Linea(5, 5, 'B');
+		Linea game = new Linea(6, 6, 'B');
 		game.playRedAt(1);
 		game.playBlueAt(2);
 		game.playRedAt(2);
@@ -188,21 +188,36 @@ public class GameTest {
 	}
 	
 //	@Test public void test18RedWinsBDiagonallyDown() {
-//		
-//	}
-//	
-//	@Test public void test19BlueWinsBToTheRight() {
-//		
-//	}
-//	
-//	@Test public void test20BlueWinsBToTheLeft() {
-//		
+//		Linea game = new Linea(6, 6, 'B');
+//		game.playRedAt(1);
+//		game.playBlueAt(1);
+//		game.playRedAt(2);
+//		game.playBlueAt(2);
+//		game.playRedAt(4);
+//		game.playBlueAt(3);
+//		game.playRedAt(3);
+//		game.playBlueAt(2);
+//		game.playRedAt(3);
+//		game.playBlueAt(3);
+//		game.playRedAt(4);
+//		game.playBlueAt(4);
+//		game.playRedAt(4);
+//		game.playBlueAt(4);
+//		assertTrue(game.finished());
 //	}
 	
+//	@Test public void test19BlueWinsBDiagonallyUp() {
+//		
+//	}
+//	
+//	@Test public void test20BlueWinsBDiagonallyDown() {
+//		
+//	}
+
 	@Test public void test21RedWinsCHorizontally() {
 		Linea game = new Linea(5, 5, 'C');
-		game.playRedAt(1);
-		game.playBlueAt(1);
+		game.playRedAt(5);
+		game.playBlueAt(5);
 		game.playRedAt(2);
 		game.playBlueAt(2);
 		game.playRedAt(3);
@@ -215,7 +230,7 @@ public class GameTest {
 	@Test public void test22RedWinsCVertically() {
 		Linea game = new Linea(5, 5, 'C');
 		game.playRedAt(3);
-		game.playBlueAt(1);
+		game.playBlueAt(5);
 		game.playRedAt(3);
 		game.playBlueAt(2);
 		game.playRedAt(3);
@@ -225,11 +240,26 @@ public class GameTest {
 		
 	}
 	
-//	@Test public void test23RedWinsCToTheRight() {
-//		
+//	@Test public void test23RedWinsCDiagonallyUp() {
+//		Linea game = new Linea(6, 6, 'C');
+//		game.playRedAt(1);
+//		game.playBlueAt(1);
+//		game.playRedAt(2);
+//		game.playBlueAt(2);
+//		game.playRedAt(4);
+//		game.playBlueAt(3);
+//		game.playRedAt(3);
+//		game.playBlueAt(2);
+//		game.playRedAt(3);
+//		game.playBlueAt(3);
+//		game.playRedAt(4);
+//		game.playBlueAt(4);
+//		game.playRedAt(4);
+//		game.playBlueAt(4);
+//		assertTrue(game.finished());
 //	}
-//	
-//	@Test public void test24RedWinsCToTheLeft() {
+	
+//	@Test public void test24RedWinsCDiagonallyDown() {
 //		
 //	}
 	
@@ -259,11 +289,11 @@ public class GameTest {
 		assertTrue(game.finished());
 	}
 	
-//	@Test public void test27BlueWinsCToTheRight() {
+//	@Test public void test27BlueWinsCDiagonallyUp() {
 //		
 //	}
 //	
-//	@Test public void test28BlueWinsCToTheLeft() {
+//	@Test public void test28BlueWinsCDiagonallyDown() {
 //		
 //	}
 //	
@@ -294,7 +324,6 @@ public class GameTest {
 //	
 //
 }
-
 
 
 
