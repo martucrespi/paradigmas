@@ -12,7 +12,7 @@ public class RedTurn extends Status{
 	
 	public void play(Linea linea, int column) {
 		if (linea.turn == 'X') {
-			if (column > linea.columns()) {
+			if (column < 0 || column > linea.columns()) {
 				throw new Error ("Cannot play out of bounds");
 			}
 			else {

@@ -21,10 +21,11 @@ public class Linea {
 		setTurn('X');
 		
 		this.board = new ArrayList<>();
-		for (int i = 0; i < columns; i++) {
-			ArrayList<Character> column = new ArrayList<>();
-			column.add('N');
-			this.board.add(column);
+        for (int i = 0; i < columns; i++) {
+            ArrayList<Character> column = new ArrayList<>();
+            for(int j = 0; j< rows; j ++)
+                column.add(j,' ');
+            this.board.add(column);
 		}
 	}
 	
