@@ -11,29 +11,26 @@ public class GameTest {
 	
 	@Test public void test01StartNewGameA() {
 		Line game = new Line(6, 6, 'A');
-		assertEquals(game.columns, 6);
-		assertEquals(game.rows, 6);
+		checksColumnsAndRows(game);
 		assertEquals(game.gametype, 'A');
 	}
+
 	
 	@Test public void test02StartsNewGameB() {
 		Line game = new Line(6, 6, 'B');
-		assertEquals(game.columns, 6);
-		assertEquals(game.rows, 6);
+		checksColumnsAndRows(game);
 		assertEquals(game.gametype, 'B');
 	}
 	
 	@Test public void test03StartsNewGameC() {
 		Line game = new Line(6, 6, 'C');
-		assertEquals(game.columns, 6);
-		assertEquals(game.rows, 6);
+		checksColumnsAndRows(game);
 		assertEquals(game.gametype, 'C');
 	}
 	
 	@Test public void test04RedPlays() {
 		Line game = new Line(6, 6, 'C');
-		assertTrue(game.redPlays());
-		assertFalse(game.bluePlays());
+		checksIfIsRedsTurn(game);
 	}
 	
 	@Test public void test05RedPlaysBluesTurn() {
@@ -47,8 +44,7 @@ public class GameTest {
 		Line game = new Line(6, 6, 'C');
 		game.playRedAt(1);	
 		game.playBlueAt(2);
-		assertTrue(game.redPlays());
-		assertFalse(game.bluePlays());
+		checksIfIsRedsTurn(game);
 	}
 	
 	@Test public void test07RedCannotPlayOutsideOutOfBoundsWidth() {
@@ -127,7 +123,7 @@ public class GameTest {
 		game.playRedAt(3);
 		game.playBlueAt(3);
 		game.playRedAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test14RedWinsAVertically() {
@@ -139,7 +135,7 @@ public class GameTest {
 		game.playRedAt(1);
 		game.playBlueAt(2);
 		game.playRedAt(1);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test15BlueWinsAHorizontally() {
@@ -154,7 +150,7 @@ public class GameTest {
 		game.playBlueAt(3);
 		game.playRedAt(5);
 		game.playBlueAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 		
 	}
 	
@@ -168,7 +164,7 @@ public class GameTest {
 		game.playBlueAt(2);
 		game.playRedAt(1);
 		game.playBlueAt(2);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test17RedWinsBDiagonallyUp() {
@@ -184,7 +180,7 @@ public class GameTest {
 		game.playRedAt(5);
 		game.playBlueAt(4);
 		game.playRedAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test18RedWinsBDiagonallyDown() {
@@ -203,7 +199,7 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(4);
 		game.playBlueAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test19BlueWinsBDiagonallyUp() {
@@ -220,7 +216,7 @@ public class GameTest {
 		game.playBlueAt(5);
 		game.playRedAt(5);
 		game.playBlueAt(5);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test20BlueWinsBDiagonallyDown() {
@@ -239,7 +235,7 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(6);
 		game.playBlueAt(5);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 
 	@Test public void test21RedWinsCHorizontally() {
@@ -251,7 +247,7 @@ public class GameTest {
 		game.playRedAt(3);
 		game.playBlueAt(3);
 		game.playRedAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test22RedWinsCVertically() {
@@ -263,7 +259,7 @@ public class GameTest {
 		game.playRedAt(3);
 		game.playBlueAt(4);
 		game.playRedAt(3);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test23RedWinsCDiagonallyUp() {
@@ -282,7 +278,7 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(4);
 		game.playBlueAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test24RedWinsCDiagonallyDown() {
@@ -301,7 +297,7 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(4);
 		game.playBlueAt(4);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test25BlueWinsCHorizontally() {
@@ -314,7 +310,7 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(2);
 		game.playBlueAt(5);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test26BlueWinsCVertically() {
@@ -327,7 +323,7 @@ public class GameTest {
 		game.playBlueAt(1);
 		game.playRedAt(3);
 		game.playBlueAt(1);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test27BlueWinsCDiagonallyUp() {
@@ -344,7 +340,7 @@ public class GameTest {
 		game.playBlueAt(5);
 		game.playRedAt(5);
 		game.playBlueAt(5);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
 	
 	@Test public void test28BlueWinsCDiagonallyDown() {
@@ -363,8 +359,10 @@ public class GameTest {
 		game.playBlueAt(4);
 		game.playRedAt(6);
 		game.playBlueAt(5);
-		assertTrue(game.finished());
+		chekIfGameFInished(game);
 	}
+
+	
 	
 	@Test public void test29CannotPlayWhenWonA() {
 		Line game = new Line(5, 5, 'A');
@@ -470,6 +468,20 @@ public class GameTest {
 		}catch(Error e) {
 			assertTrue(e.getMessage().equals("The game has ended"));
 		}
+	}
+	
+	private void checksColumnsAndRows(Line game) {
+		assertEquals(game.columns, 6);
+		assertEquals(game.rows, 6);
+	}
+	
+	private void checksIfIsRedsTurn(Line game) {
+		assertTrue(game.redPlays());
+		assertFalse(game.bluePlays());
+	}
+	
+	private void chekIfGameFInished(Line game) {
+		assertTrue(game.finished());
 	}
 
 }
