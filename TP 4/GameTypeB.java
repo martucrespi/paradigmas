@@ -13,7 +13,7 @@ public class GameTypeB extends GameType{
 	}
 
 	
-//	public boolean finished(Linea linea) {
+//	public boolean finished(Line linea) {
 //		int counter = 0;
 //		int index;
 //		for (int e = 0; e < linea.columns()-2 ; e++) {
@@ -34,22 +34,32 @@ public class GameTypeB extends GameType{
 //	}	
 	
 	
-	public boolean winningMethod(Linea linea, char player) {
+	public boolean winningMethod(Line linea, char player) {
 		return checkDiagonal(linea, player);
 	}
 	
-	public boolean checkDiagonal(Linea linea, char player) {
-		boolean diagonallyDown = IntStream.range(0, linea.rows() - 3)
-									.anyMatch(i -> IntStream.range(0, linea.columns() - 3 )
-											.anyMatch(j -> IntStream.range(0, 4)
-													.allMatch(k -> linea.board.get(i + k).get(j + k) == player)));
-		
-		boolean diagonallyUp = IntStream.range(3, linea.rows() - 3)
-									.anyMatch(i -> IntStream.range(0, linea.columns())
-											.anyMatch(j -> IntStream.range(0, 4)
-													.allMatch(k -> linea.board.get(i + k).get(j - k) == player)));
-		
-		return diagonallyUp || diagonallyDown;
+	public boolean checkDiagonal(Line linea, char player) {
+	    boolean diagonallyDown = IntStream.range(0, linea.rows() - 3)
+	        .anyMatch(i -> IntStream.range(0, linea.columns() - 3)
+	            .anyMatch(j -> IntStream.range(0, 4)
+	                .allMatch(k -> {
+	                    int rowIndex = i + k;
+	                    int colIndex = j + k;
+	                    return rowIndex < linea.rows() && colIndex < linea.columns() &&
+	                           linea.board.get(rowIndex).get(colIndex) == player;
+	                })));
+
+	    boolean diagonallyUp = IntStream.range(3, linea.rows())
+	        .anyMatch(i -> IntStream.range(0, linea.columns() - 3)
+	            .anyMatch(j -> IntStream.range(0, 4)
+	                .allMatch(k -> {
+	                    int rowIndex = i - k;
+	                    int colIndex = j + k;
+	                    return rowIndex >= 0 && colIndex < linea.columns() &&
+	                           linea.board.get(rowIndex).get(colIndex) == player;
+	                })));
+
+	    return diagonallyUp || diagonallyDown;
 	}
 
 

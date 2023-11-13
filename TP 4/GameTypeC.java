@@ -1,6 +1,7 @@
 package linea;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class GameTypeC extends GameType{
 	
@@ -13,7 +14,7 @@ public class GameTypeC extends GameType{
 	}
 
 	
-	public boolean winningMethod(Linea linea, char player) {
+	public boolean winningMethod(Line linea, char player) {
 		
 		for(int i = 0; i < linea.columns(); i ++) {
 				if (verticalElementsAreEqual(linea.board.get(i))) {
@@ -39,7 +40,7 @@ public class GameTypeC extends GameType{
 			}
 		}
 		
-		return false;
+		return checkDiagonal(linea, player);
 	}
 
 	
@@ -58,5 +59,29 @@ public class GameTypeC extends GameType{
 	    return false;
 	}
 	
+	
+	public boolean checkDiagonal(Line linea, char player) {
+	    boolean diagonallyDown = IntStream.range(0, linea.rows() - 3)
+	        .anyMatch(i -> IntStream.range(0, linea.columns() - 3)
+	            .anyMatch(j -> IntStream.range(0, 4)
+	                .allMatch(k -> {
+	                    int rowIndex = i + k;
+	                    int colIndex = j + k;
+	                    return rowIndex < linea.rows() && colIndex < linea.columns() &&
+	                           linea.board.get(rowIndex).get(colIndex) == player;
+	                })));
+
+	    boolean diagonallyUp = IntStream.range(3, linea.rows())
+	        .anyMatch(i -> IntStream.range(0, linea.columns() - 3)
+	            .anyMatch(j -> IntStream.range(0, 4)
+	                .allMatch(k -> {
+	                    int rowIndex = i - k;
+	                    int colIndex = j + k;
+	                    return rowIndex >= 0 && colIndex < linea.columns() &&
+	                           linea.board.get(rowIndex).get(colIndex) == player;
+	                })));
+
+	    return diagonallyUp || diagonallyDown;
+	}
 
 }

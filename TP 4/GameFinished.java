@@ -6,7 +6,7 @@ public class GameFinished extends Status{
 		return 0;
 	}
 
-	public void play(Linea linea, int column) {
+	public void play(Line linea, int column) {
 		
 	}
 	

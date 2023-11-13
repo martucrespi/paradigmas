@@ -12,7 +12,7 @@ public class GameTypeA extends GameType{
 		return this.key;
 	}
 
-	public boolean winningMethod(Linea linea, char player) {
+	public boolean winningMethod(Line linea, char player) {
 		
 		for(int i = 0; i < linea.columns(); i ++) {
 				if (verticalElementsAreEqual(linea.board.get(i))) {

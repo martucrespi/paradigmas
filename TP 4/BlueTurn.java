@@ -10,7 +10,7 @@ public class BlueTurn extends Status{
 		return this.icon;
 	}
 
-	public void play(Linea linea, int column) {
+	public void play(Line linea, int column) {
 		if (linea.turn == 'O') {
 			if (column > linea.columns()) {
 				throw new Error ("Cannot play out of bounds");
